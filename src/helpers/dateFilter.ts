@@ -1,22 +1,18 @@
-import { Item } from "../types/Item";
+import { Item } from '../types/Item';
 
 export const getCurrentMonth = () => {
     let now = new Date();
-    return `${now.getFullYear()}-${now.getMonth()+1}`;
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Garante que o mês tenha dois dígitos
+    return `${now.getFullYear()}-${month}`;
 }
 
 export const filterListByMonth = (list: Item[], date: string): Item[] => {
-    let newList: Item[] = [];
-    let [year, month] = date.split("-");
+    const [year, month] = date.split('-').map(Number);
 
-    for( let i in list ) {
-        if (
-            list[i].date.getFullYear() === parseInt(year) &&
-            (list[i].date.getMonth() +1) === parseInt(month)
-        ) {
-            newList.push(list[i])
-        }
-    }
+    return list.filter((item) => {
+        const itemYear = item.date.getFullYear();
+        const itemMonth = item.date.getMonth() + 1; // Os meses em JavaScript são baseados em zero
 
-    return newList;
+        return itemYear === year && itemMonth === month;
+    });
 }
