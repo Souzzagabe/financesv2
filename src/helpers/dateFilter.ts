@@ -15,4 +15,9 @@ export const filterListByMonth = (list: Item[], date: string): Item[] => {
 
         return itemYear === year && itemMonth === month;
     });
+    
+}
+
+export const formatCurrentMonth = () => {
+    
 }
