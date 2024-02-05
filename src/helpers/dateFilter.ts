@@ -18,6 +18,10 @@ export const filterListByMonth = (list: Item[], date: string): Item[] => {
     
 }
 
-export const formatCurrentMonth = () => {
-    
+export const formatCurrentMonth = (currentMonth: string): string => {
+    let [year, month] = currentMonth.split('-');
+    let months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+     'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro','Dezembro'];
+
+    return `${months[parseInt(month) - 1]} de ${year}`;
 }

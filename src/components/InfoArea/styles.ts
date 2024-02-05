@@ -25,6 +25,7 @@ export const MonthArrow = styled.div`
 
 export const MonthTitle = styled.div`
     flex: 1;
+    text-align: center;
 `;
 
 export const ResumeArea = styled.div`
