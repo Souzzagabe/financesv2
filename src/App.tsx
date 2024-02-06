@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import * as C from "./App.Styles";
 import { Item } from "./types/Item";
-import { Category } from "./types/category";
 import { categories } from "./data/categories";
 import { items } from "./data/items";
 import { getCurrentMonth, filterListByMonth } from "./helpers/dateFilter";
@@ -68,11 +67,9 @@ const App = () => {
         />
         <InputArea onAdd={handleAddItem} />
         <TableArea list={filteredList} onDeleteItem={handleDeleteItem} />
-              <Footer/>
+        <Footer />
       </C.Body>
-
     </C.Container>
-    
   );
 };
 

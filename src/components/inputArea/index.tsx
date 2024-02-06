@@ -60,6 +60,7 @@ export const InputArea = ({ onAdd }: Props) => {
         <C.Input
           type="date"
           value={dateField}
+          autoComplete="Date"
           onChange={(e) => setDateField(e.target.value)}
         />
       </C.InputLabel>
@@ -68,6 +69,7 @@ export const InputArea = ({ onAdd }: Props) => {
         <C.Select
           value={categoryField}
           onChange={(e) => setCategoryField(e.target.value)}
+          autoComplete="categoria"
         >
           <>
             <option></option>
@@ -84,7 +86,9 @@ export const InputArea = ({ onAdd }: Props) => {
         <C.Input
           type="text"
           value={titleField}
+          autoComplete="Título"
           onChange={(e) => setTitleField(e.target.value)}
+          placeholder="Tíulo"
         />
       </C.InputLabel>
       <C.InputLabel>

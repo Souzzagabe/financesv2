@@ -21,7 +21,6 @@ export const Body = styled.div`
     margin-bottom: 50px;
     padding: 0 20px;
     height: 76vh;
-     /* Adicione um espaçamento interno padrão */
 
     @media (max-width: 768px) {
         max-width: 100%;

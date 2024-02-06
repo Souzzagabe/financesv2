@@ -7,5 +7,10 @@ export const Footer = styled.div`
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #5F479F;
   text-decoration: none !important;
-  height: 50px; /* Ajuste a altura conforme necessário */
+  height: 50px; 
+
+  @media (max-width: 768px) {
+        font-size: 5px;
+        margin-top: 20px;
+    }
 `;

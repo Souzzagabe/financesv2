@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const TableLine = styled.tr`
-
 `;
 
 export const TableColumn = styled.td`
@@ -11,12 +10,12 @@ export const TableColumn = styled.td`
 
     @media (max-width: 768px) {
         font-size: 12px;
-        padding: 8px 5px; /* Reduzir o espaçamento interno em telas menores */
+        padding: 8px 5px;
     }
 
     @media (max-width: 450px) {
-        font-size: 10px; /* Reduzir ainda mais o tamanho da fonte em telas muito pequenas */
-        padding: 6px 3px; /* Reduzir ainda mais o espaçamento interno em telas muito pequenas */
+        font-size: 10px;
+        padding: 6px 3px;
     }
 `;
 
@@ -38,7 +37,7 @@ export const Category = styled.div<{ color: string }>`
 
     @media (max-width: 450px) {
         font-size: 10px;
-        margin-bottom: 5px; /* Adicionar espaçamento inferior em telas muito pequenas */
+        margin-bottom: 5px;
     }
 `;
 
