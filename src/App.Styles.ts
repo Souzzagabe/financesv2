@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Header = styled.div`
-    background-color: #820AD1;
+    background-color: #5f479f;
     height: 150px;
     text-align: center;
 `;
@@ -19,4 +19,11 @@ export const Body = styled.div`
     margin: auto;
     max-width: 980px;
     margin-bottom: 50px;
+    padding: 0 20px;
+    height: 76vh;
+     /* Adicione um espaçamento interno padrão */
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
 `;

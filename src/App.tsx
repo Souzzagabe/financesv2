@@ -1,19 +1,21 @@
-import { useState, useEffect } from 'react';
-import * as C from './App.Styles';
-import { Item } from './types/Item';
-import { Category } from './types/category';
-import { categories } from './data/categories';
-import { items } from './data/items';
-import { getCurrentMonth, filterListByMonth } from './helpers/dateFilter';
-import TableArea from './components/TableArea';
-import { InfoArea } from './components/InfoArea';
+import { useState, useEffect } from "react";
+import * as C from "./App.Styles";
+import { Item } from "./types/Item";
+import { Category } from "./types/category";
+import { categories } from "./data/categories";
+import { items } from "./data/items";
+import { getCurrentMonth, filterListByMonth } from "./helpers/dateFilter";
+import { TableArea } from "./components/TableArea";
+import { InfoArea } from "./components/InfoArea";
+import { InputArea } from "./components/inputArea";
+import { Footer } from "./components/Footer";
 
-const  App = () => {
+const App = () => {
   const [list, setList] = useState(items);
   const [filteredList, setFilteredList] = useState<Item[]>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
-  const [income, setIncome] = useState(0)
-  const [expense, setExpense] = useState(0)
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
 
   useEffect(() => {
     setFilteredList(filterListByMonth(list, currentMonth));
@@ -21,46 +23,57 @@ const  App = () => {
 
   useEffect(() => {
     let incomeCount = 0;
-    let expenseCount = 0
+    let expenseCount = 0;
 
-    for(let i in filteredList) {
-      if(categories[filteredList[i].category].expense) {
+    for (let i in filteredList) {
+      if (categories[filteredList[i].category].expense) {
         expenseCount += filteredList[i].value;
-        
       } else {
         incomeCount += filteredList[i].value;
-    }}
+      }
+    }
 
-    setIncome(incomeCount)
-    setExpense(expenseCount)
-
-  }, [filteredList])
+    setIncome(incomeCount);
+    setExpense(expenseCount);
+  }, [filteredList]);
 
   const handleMonthChange = (newMonth: string) => {
     setCurrentMonth(newMonth);
-  }
-  
+  };
+
+  const handleAddItem = (item: Item) => {
+    let newList = [...list];
+    newList.push(item);
+    setList(newList);
+  };
+
+  const handleDeleteItem = (index: number) => {
+    let newList = [...list];
+    newList.splice(index, 1);
+    setList(newList);
+    setFilteredList(filterListByMonth(newList, currentMonth));
+  };
+
   return (
     <C.Container>
       <C.Header>
         <C.HeaderText>Finanças</C.HeaderText>
       </C.Header>
       <C.Body>
-
-        <InfoArea  
-        currentMonth={currentMonth}
-        onMonthChange={handleMonthChange}
-        income={income}
-        expense={expense}
+        <InfoArea
+          currentMonth={currentMonth}
+          onMonthChange={handleMonthChange}
+          income={income}
+          expense={expense}
         />
-
-        {/* Área de inserção */}
-
-       <TableArea list={filteredList}/>
-
+        <InputArea onAdd={handleAddItem} />
+        <TableArea list={filteredList} onDeleteItem={handleDeleteItem} />
+              <Footer/>
       </C.Body>
+
     </C.Container>
-  )
-}
+    
+  );
+};
 
 export default App;

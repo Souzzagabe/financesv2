@@ -7,13 +7,24 @@ export const Container = styled.div`
     padding: 20px;
     margin-top: -40px;
     display: flex;
+    flex-direction: column; /* Alteração para coluna em telas menores */
     align-items: center;
+
+    @media (min-width: 768px) {
+        flex-direction: row; /* Volta para linha em telas maiores */
+        align-items: center;
+    }
 `;
 
 export const MonthArea = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
+    margin-bottom: 10px; /* Adiciona espaçamento inferior em telas menores */
+    
+    @media (min-width: 768px) {
+        margin-bottom: 0; /* Remove espaçamento inferior em telas maiores */
+    }
 `;
 
 export const MonthArrow = styled.div`
@@ -31,4 +42,8 @@ export const MonthTitle = styled.div`
 export const ResumeArea = styled.div`
     flex: 2;
     display: flex;
+    
+    @media (max-width: 768px) {
+        flex-direction: column; /* Muda para coluna em telas menores */
+    }
 `;

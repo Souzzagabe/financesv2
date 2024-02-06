@@ -16,3 +16,10 @@ export const Table = styled.table `
     text-align: left;
 
 `;
+
+export const Trd = styled.tr`
+    background-color: #FBF8E7;
+`;
+
+    export const TableColumn = styled.td `
+`
