@@ -11,7 +11,6 @@ export const ResumeItem = ({ title, value, color }: Props) => {
         <C.Container>
             <C.Title>{title}</C.Title>
             <C.Info color={color}>R$ {value}</C.Info>
-            color2
         </C.Container>
     );
 }
