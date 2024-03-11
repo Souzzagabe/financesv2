@@ -23,7 +23,7 @@ export const TableArea = ({ list, onDeleteItem }: Props) => {
             <tbody>
                 {list.map((item, index)=>(
                     <TableItem key={index} item={item} onDeleteItem={() => onDeleteItem(index)} />
-                ))};
+                ))}
             </tbody>
         </C.Table>
     );
